@@ -1,0 +1,10 @@
+[New Thread 2932.0x2bfc]
+[New Thread 2932.0x2cbc]
+[New Thread 2932.0x27d8]
+[New Thread 2932.0x2cc4]
+[New Thread 2932.0x2fa0]
+[New Thread 2932.0x3954]
+warning: cannot close "ap-1450.core": invalid operation
+/tmp/gdb.1450:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 2932) detached]

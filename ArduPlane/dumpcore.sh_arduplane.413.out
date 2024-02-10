@@ -1,0 +1,10 @@
+[New Thread 2768.0xfd8]
+[New Thread 2768.0x319c]
+[New Thread 2768.0x10dc]
+[New Thread 2768.0x3054]
+[New Thread 2768.0x8c8]
+[New Thread 2768.0x2d90]
+warning: cannot close "ap-421.core": invalid operation
+/tmp/gdb.421:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 2768) detached]

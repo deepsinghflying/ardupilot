@@ -310,6 +310,7 @@ void AP_TECS::update_50hz(void)
     }
     _update_50hz_last_usec = now;
 
+
     // Use inertial nav verical velocity and height if available
     Vector3f velned;
     if (_ahrs.get_velocity_NED(velned)) {
@@ -463,7 +464,7 @@ void AP_TECS::_update_speed_demand(void)
 void AP_TECS::_update_height_demand(void)
 {
     // Apply 2 point moving average to demanded height
-    _hgt_dem = 0.5f * (_hgt_dem + _hgt_dem_in_old);
+    // _hgt_dem = 0.5f * (_hgt_dem + _hgt_dem_in_old);
     _hgt_dem_in_old = _hgt_dem;
 
     float max_sink_rate = _maxSinkRate;
@@ -487,9 +488,14 @@ void AP_TECS::_update_height_demand(void)
     }
     _hgt_dem_prev = _hgt_dem;
 
-    // Apply first order lag to height demand
-    _hgt_dem_adj = 0.05f * _hgt_dem + 0.95f * _hgt_dem_adj_last;
-
+    if(_flags.is_doing_auto_land or _path_proportion <  0.1)
+    {
+        _hgt_dem_adj = 0.05 * _hgt_dem + 0.95 * _hgt_dem_adj_last;
+    }
+	else
+    {
+        _hgt_dem_adj = 0.95f* _hgt_dem + 0.05f* _hgt_dem_adj_last;
+    }
     // when flaring force height rate demand to the
     // configured sink rate and adjust the demanded height to
     // be kinematically consistent with the height rate.

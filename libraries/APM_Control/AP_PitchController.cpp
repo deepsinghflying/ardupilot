@@ -307,7 +307,6 @@ int32_t AP_PitchController::get_servo_out(int32_t angle_err, float scaler, bool 
             desired_rate = gains.rmax_pos;
 		}
 	}
-	
 	if (inverted) {
 		desired_rate = -desired_rate;
 	}

@@ -291,7 +291,7 @@ void Plane::update_loiter(uint16_t radius)
     } else if ((loiter.start_time_ms == 0 &&
                 (control_mode == &mode_auto || control_mode == &mode_guided) &&
                 auto_state.crosstrack &&
-                current_loc.get_distance(next_WP_loc) > radius*3) ||
+                current_loc.get_distance(next_WP_loc) > radius*0.1) ||
                (control_mode == &mode_rtl && quadplane.available() && quadplane.rtl_mode == QuadPlane::RTL_MODE::SWITCH_QRTL)) {
         /*
           if never reached loiter point and using crosstrack and somewhat far away from loiter point
@@ -303,7 +303,8 @@ void Plane::update_loiter(uint16_t radius)
         */
         nav_controller->update_waypoint(prev_WP_loc, next_WP_loc);
     } else {
-        nav_controller->update_loiter(next_WP_loc, radius, loiter.direction);
+        nav_controller->update_waypoint(prev_WP_loc, next_WP_loc);
+        // nav_controller->update_loiter(next_WP_loc, radius, loiter.direction);
     }
 
     if (loiter.start_time_ms == 0) {

@@ -1,0 +1,10 @@
+[New Thread 10200.0x3394]
+[New Thread 10200.0x1b74]
+[New Thread 10200.0x32b0]
+[New Thread 10200.0x23b4]
+[New Thread 10200.0x1f94]
+[New Thread 10200.0x2fbc]
+warning: cannot close "ap-1135.core": invalid operation
+/tmp/gdb.1135:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 10200) detached]

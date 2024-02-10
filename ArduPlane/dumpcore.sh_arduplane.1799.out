@@ -1,0 +1,10 @@
+[New Thread 6676.0x13f0]
+[New Thread 6676.0xdd8]
+[New Thread 6676.0xf20]
+[New Thread 6676.0x1620]
+[New Thread 6676.0x210]
+[New Thread 6676.0x1af4]
+warning: cannot close "ap-1840.core": invalid operation
+/tmp/gdb.1840:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 6676) detached]

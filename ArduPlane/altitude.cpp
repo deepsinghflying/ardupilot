@@ -260,6 +260,7 @@ void Plane::set_target_altitude_location(const Location &loc)
  */
 int32_t Plane::relative_target_altitude_cm(void)
 {
+  float proportion = constrain_float(5*auto_state.wp_proportion, 0.0f, 1.0f);
 #if AP_TERRAIN_AVAILABLE
     float relative_home_height;
     if (target_altitude.terrain_following && 
@@ -271,7 +272,7 @@ int32_t Plane::relative_target_altitude_cm(void)
 
         // correct for rangefinder data
         relative_home_height += rangefinder_correction();
-
+        relative_home_height += proportion*calc_altitude_error_cm();
         // we are following terrain, and have terrain data for the
         // current location. Use it.
         return relative_home_height*100;
@@ -280,6 +281,7 @@ int32_t Plane::relative_target_altitude_cm(void)
     int32_t relative_alt = target_altitude.amsl_cm - home.alt;
     relative_alt += mission_alt_offset()*100;
     relative_alt += rangefinder_correction() * 100;
+    relative_alt += proportion*calc_altitude_error_cm();
     return relative_alt;
 }
 
@@ -311,7 +313,7 @@ void Plane::set_target_altitude_proportion(const Location &loc, float proportion
 {
     set_target_altitude_location(loc);
     proportion = constrain_float(proportion, 0.0f, 1.0f);
-    change_target_altitude(-target_altitude.offset_cm*proportion);
+    change_target_altitude(-target_altitude.offset_cm*proportion);// + 0.5*(1-proportion)*calc_altitude_error_cm());
     //rebuild the glide slope if we are above it and supposed to be climbing
     if(g.glide_slope_threshold > 0) {
         if(target_altitude.offset_cm > 0 && calc_altitude_error_cm() < -100 * g.glide_slope_threshold) {

@@ -1,0 +1,12 @@
+[New Thread 10124.0x27c8]
+[New Thread 10124.0xe50]
+[New Thread 10124.0x1570]
+[New Thread 10124.0x2368]
+[New Thread 10124.0x2058]
+[New Thread 10124.0x2570]
+[New Thread 10124.0x1b04]
+[New Thread 10124.0xa44]
+warning: cannot close "ap-2289.core": invalid operation
+/tmp/gdb.2289:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 10124) detached]

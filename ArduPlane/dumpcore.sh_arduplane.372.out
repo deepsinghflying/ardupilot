@@ -1,0 +1,10 @@
+[New Thread 1728.0x24cc]
+[New Thread 1728.0x142c]
+[New Thread 1728.0x2084]
+[New Thread 1728.0x600]
+[New Thread 1728.0x29a8]
+[New Thread 1728.0x1c54]
+warning: cannot close "ap-380.core": invalid operation
+/tmp/gdb.380:2: Error in sourced command file:
+Can't create a corefile
+[Inferior 1 (process 1728) detached]
